@@ -25,7 +25,21 @@
             border-radius: 10px;
             box-shadow: none;
         }
-
+        .picture-container {
+            position: relative;
+            display: inline-block;
+        }
+        .login-container {
+            position: absolute;
+            top: 45%;
+            left: 15%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: none;
+        }
         .picture-container {
             position: relative;
             display: inline-block;
@@ -37,7 +51,7 @@
         <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px;">
             <a class="w3-bar-item w3-button">Touch with care</a>
             <div class="w3-right w3-hide-small">
-            </div>
+          </div>
         </div>
     </div>
     <header class="w3-display-container w3-content w3-wide" style="max-width:1600px;min-width:500px">
@@ -46,8 +60,6 @@
             <h1 class="w3-xxxlarge"><b><i>Cradle of Beauty</b></i></h1>
         </div>
     </header>
-
-    <body>
         <div class="login-container w3-card-4 w3-margin w3-center" style="max-width:400px">
             <h3 class="w3-center"><b>Login</b></h3>
             <form action="#" method="post">
@@ -61,23 +73,36 @@
                 </div>
                 <button id="login-btn" class="w3-button w3-block w3-grey w3-section w3-padding" type="submit">Login</button>
             </form>
+            <p>Don't have an account? <a href="signup.html">Sign up</a></p>
         </div>
         <script>
             const loginBtn = document.getElementById('login-btn');
             const signupBtn = document.getElementById('signup-btn');
-
             loginBtn.addEventListener('click', (event) => {
                 event.preventDefault();
-
                 const email = document.getElementsByName("email")[0].value;
                 const password = document.getElementsByName("password")[0].value;
                 if (email.trim() !== "" && password.trim() !== "") {
-                    window.location.href = "index.html";
+                    window.location.href = "indx.html";
                 } else {
                     alert("Please enter your email and password.");
                 }
             });
             signupBtn.addEventListener('click', (event) => {
+                window.location.href = "signup.html";
+            });
+            const signUpContainer = document.createElement('div');
+            signUpContainer.className = "w3-container w3-center w3-padding-32";
+            const signUpButton = document.createElement('button');
+            signUpButton.className = "w3-button w3-black";
+            signUpButton.id = "signup-btn";
+            signUpButton.innerHTML = "Sign Up";
+            const signUpText = document.createElement('p');
+            signUpText.innerHTML = "Don't have an account?";
+            signUpContainer.appendChild(signUpText);
+            signUpContainer.appendChild(signUpButton);
+            document.body.appendChild(signUpContainer);
+            signUpButton.addEventListener('click', (event) => {
                 window.location.href = "signup.html";
             });
         </script>
